@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ProaSense - setpoint deviation</title>
+		
+	<script type="text/javascript" src="viz/lib/vis.js"></script>
+	<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="viz/maviz.js"></script>
+	<script type="text/javascript">
+		var viz;
+	
+		$(document).ready(function () {
+			viz = MAViz({
+				url: 'data/data.json',
+				networkContainer: 'network_container',
+				treeContainer: 'tree_container'
+			});
+		});
+	</script>
+	
+	<style type="text/css">
+	  	html, body {
+	      height:100%;
+	  	}
+	  	
+	  	#viz_container {
+			height: 500px;
+		}
+		
+		#network_container, #tree_container {
+			height: 100%;
+			width: 50%;
+		}
+		
+		#network_container {
+			float: left;
+		}
+		
+		#tree_container {
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="config_div">
+		<button type="button" id="refresh_btn" onclick="viz.refresh();">Refresh</button>
+	</div>
+	<div id="viz_container">
+		<div id="network_container"></div>
+		<div id="tree_container"></div>
+	</div>
+</body>
